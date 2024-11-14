@@ -8,7 +8,7 @@ public class LineManager : MonoBehaviour
 
     // LineRenderer와 EdgeCollider2D에 설정할 포인트 리스트
     private List<Vector2> linePoints = new List<Vector2>();
-
+ 
     void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
