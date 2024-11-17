@@ -70,11 +70,16 @@ namespace SaveTheDog
             }
             edgeCollider.SetPoints(edgePoints);
 
-            if (!gameObject.GetComponent<Rigidbody2D>())
+            Rigidbody2D rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+            if (!rigidbody2D)
             {
-                gameObject.AddComponent<Rigidbody2D>();
+                rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
             }
+
+            // 중력 스케일을 2배로 설정
+            rigidbody2D.gravityScale = 6f;
         }
+
 
         private bool IsMouseOnBackground(Vector2 mousePos)
         {

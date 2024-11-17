@@ -28,10 +28,16 @@ namespace SaveTheDog
             }
         }
 
-        public void UpdateTimerText(int time)
+        public void UpdateTimerText(int time,bool isGameOver=false)
         {
             if (timerText != null)
             {
+                if(isGameOver)
+                {
+                    timerText.text="Game Over!!";
+                    return;
+                }
+
                 if(time>0)
                 {
                     timerText.text = time.ToString();
@@ -41,6 +47,8 @@ namespace SaveTheDog
                 {
                     timerText.text="Game Clear!!";
                 }
+
+                
                 
             }
         }

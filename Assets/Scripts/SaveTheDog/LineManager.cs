@@ -44,7 +44,9 @@ namespace SaveTheDog
 
         private IEnumerator StartTimer()
         {
-            float timerDuration = 5f;
+            BeeManager.Instance.StartSpawnBee();
+            
+            float timerDuration = 8f;
             float timeRemaining = timerDuration;
 
             while (timeRemaining > 0f)
@@ -54,6 +56,7 @@ namespace SaveTheDog
                 yield return new WaitForSeconds(1f); // 1초 기다리기
             }
 
+            BeeManager.Instance.DisableBee();
             animator.SetBool("isClear", true); 
             timerCoroutine = null;
         }
@@ -64,6 +67,9 @@ namespace SaveTheDog
             {
                 StopCoroutine(timerCoroutine); // 타이머 멈추기
                 timerCoroutine = null; // 타이머 코루틴을 null로 설정하여 재시작 가능하게 만듬
+                UIManager.Instance.UpdateTimerText(0,true);
+                animator.SetBool("isHit", true); 
+                BeeManager.Instance.DisableBee();
             }
         }
 
