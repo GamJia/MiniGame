@@ -7,7 +7,7 @@ public class ColorFillEditor : Editor
     public override void OnInspectorGUI()
     {
         ColorFillManager colorFillManager = (ColorFillManager)target;
-        colorFillManager.gridSize = EditorGUILayout.IntSlider("Grid Size", colorFillManager.gridSize, 0, 10);
+        colorFillManager.gridSize = EditorGUILayout.IntSlider("Grid Size", colorFillManager.gridSize, 0, 11);
 
         // grid 배열 크기 맞추기
         if (colorFillManager.grid == null || colorFillManager.grid.GetLength(0) != colorFillManager.gridSize || colorFillManager.grid.GetLength(1) != colorFillManager.gridSize)
