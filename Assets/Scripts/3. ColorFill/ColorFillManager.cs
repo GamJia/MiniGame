@@ -4,14 +4,32 @@ public class ColorFillManager : MonoBehaviour
 {
     public GameObject enablePrefab;  // true일 때 인스턴스화할 Prefab
     public GameObject disablePrefab; // false일 때 인스턴스화할 Prefab
+    public GameObject completeText;
 
     public bool[,] grid;  // 그리드 배열
 
     public int gridSize = 5;   // 그리드 크기
     public float gridScale = 1.2f;
 
+    private int maxCount=0;
+    private int count=0;
+
+    public static ColorFillManager Instance => instance;
+    private static ColorFillManager instance;
+
+
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); 
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
+
         // 그리드 크기 확인 및 초기화
         if (grid == null || grid.GetLength(0) != gridSize || grid.GetLength(1) != gridSize)
         {
@@ -29,7 +47,7 @@ public class ColorFillManager : MonoBehaviour
     // 그리드에 맞춰 Prefab 인스턴스화
     public void UpdateGridPrefabs()
     {
-        // 기존에 생성된 Prefab 삭제
+        maxCount=0;
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -40,11 +58,14 @@ public class ColorFillManager : MonoBehaviour
         {
             for (int x = 0; x < gridSize; x++)
             {
-                // Prefab 선택
                 GameObject prefab = grid[x, y] ? enablePrefab : disablePrefab;
-
-                // Prefab 인스턴스화
                 GameObject tile = Instantiate(prefab, transform);
+
+                if (grid[x, y])
+                {
+                    maxCount++;
+                  
+                }
 
                 // 위치 설정
                 float positionX = x * gridScale;
@@ -88,6 +109,15 @@ public class ColorFillManager : MonoBehaviour
                 int value = PlayerPrefs.GetInt($"grid_{x}_{y}", 0); // 기본값 0
                 grid[x, y] = value == 1;
             }
+        }
+    }
+
+    public void UpdateCount()
+    {
+        count++;
+        if(count==maxCount)
+        {
+            completeText.SetActive(true);
         }
     }
 }
