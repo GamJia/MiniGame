@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SuikaGame;
 
-namespace SuikaGame
+namespace SuikaGame 
 {
     public class Fruit : MonoBehaviour
     {

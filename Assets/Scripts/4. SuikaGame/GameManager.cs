@@ -116,7 +116,7 @@ namespace SuikaGame
                 {
                     index = i;
                     break;
-                }
+                } 
             }
 
             // 다음 레벨 과일 생성
