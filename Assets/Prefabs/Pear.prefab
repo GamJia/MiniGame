@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7864375514605449024}
   - component: {fileID: 1234374633272080501}
   - component: {fileID: 3225027454886137813}
+  - component: {fileID: -4956565030667312041}
   m_Layer: 0
   m_Name: Pear
   m_TagString: Untagged
@@ -136,3 +137,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368b44d1cc4664d4d84eccdbf5fa6fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-4956565030667312041
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845887326120336608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80738fe0d8ac7fc46b8f70ae2ad0427b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
