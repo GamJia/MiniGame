@@ -83,6 +83,7 @@ namespace SuikaGame
             }
 
             gameOver.SetActive(false);
+            guide.SetActive(false);
 
             score=0;
             scoreText.text="0";
